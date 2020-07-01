@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">App Name</string>
+    <string name="input_menu_text">Input</string>
+    <string name="output_menu_text">Output</string>
+    <string name="open_drawer">Select Menu</string>
+    <string name="close_drawer">Close Menu</string>
+    <string name="input_fragment_title">Please Enter Image Thumbnail Url\n Or Enter Youtube Video Url</string>
+    <string name="url_hint_text">Enter Url</string>
+    <string name="save_button_text">Save</string>
+    <string name="add_url_text">Add</string>
+    <string name="button_text_server_fetch">Fetch 5 Images from Server</string>
+</resources>

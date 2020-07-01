@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.nasir.demo.view.main.input.InputViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/materialButton"
+            android:layout_width="0dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            android:onClick="@{() -> viewModel.fetchFromServerClicked()}"
+            android:text="@string/button_text_server_fetch"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sub_button_text_size"
+            app:backgroundTint="@android:color/transparent"
+            app:icon="@drawable/ic_down"
+            app:iconGravity="end"
+            app:iconTint="@android:color/black"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eturl"
+            app:strokeColor="@android:color/white"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/materialButton3"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:onClick="@{() -> viewModel.urlAddClicked()}"
+            android:text="@string/add_url_text"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/sub_button_text_size"
+            app:backgroundTint="@android:color/transparent"
+            app:icon="@drawable/ic_add"
+            app:iconGravity="end"
+            app:iconTint="@android:color/black"
+            app:layout_constraintBottom_toTopOf="@+id/materialButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/eturl"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:strokeColor="@android:color/white"
+            app:strokeWidth="1dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/TextAppearance.MaterialComponents.Caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:text="@string/input_fragment_title"
+            android:textColor="@color/black_effective"
+            android:textSize="@dimen/title_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/materialButton2"
+            android:layout_width="261dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="@{() -> viewModel.saveClicked()}"
+            android:text="@string/save_button_text"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/edit_text_size"
+            app:backgroundTint="@android:color/transparent"
+            app:icon="@drawable/ic_save"
+            app:iconGravity="end"
+            app:iconTint="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+            app:strokeColor="@android:color/white"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/eturl"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/white_border"
+            android:cursorVisible="true"
+            android:gravity="center|left"
+            android:hint="@string/url_hint_text"
+            android:inputType="textUri"
+            android:padding="10dp"
+            android:text="@={viewModel.url}"
+            android:textColor="@color/black_effective"
+            android:textSize="@dimen/edit_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/materialButton"
+            app:layout_constraintEnd_toStartOf="@+id/materialButton3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintVertical_bias="0.6"
+            app:strokeColor="@android:color/white"
+            app:strokeWidth="1dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/materialButton2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialButton"
+            app:setAdapter="@{viewModel.getAdapter()}" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/black"
+            android:indeterminateTintMode="src_atop"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--<include
+            android:id="@+id/detail_content"
+            layout="@layout/view_input_list"
+            app:viewModel="@{viewModel}" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

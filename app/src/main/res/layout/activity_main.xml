@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.main.MainActivity">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.nasir.demo.view.main.MainViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:fitsSystemWindows="true">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/clRootView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false">
+
+                <LinearLayout
+                    android:id="@+id/activityMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:elevation="5dp">
+                        <androidx.appcompat.widget.Toolbar
+                            android:id="@+id/toolbar"
+                            style="@style/Toolbar"
+                            app:subtitleTextColor="@color/black"
+                            app:title="@string/app_name"
+                            app:titleTextColor="@color/black" />
+                    </com.google.android.material.appbar.AppBarLayout>
+                </LinearLayout>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/navigationView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent "
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/abc_list_item_height_large_material"
+                android:paddingBottom="20dp"
+                app:itemIconTint="@color/black_effective"
+                app:itemTextColor="@color/black_effective"
+                app:menu="@menu/drawer"
+                style="@style/Widget.Design.NavigationView"
+                />
+        </androidx.drawerlayout.widget.DrawerLayout>
+    </FrameLayout>
+</layout>
